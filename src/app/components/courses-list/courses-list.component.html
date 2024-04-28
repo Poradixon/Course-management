@@ -1,0 +1,35 @@
+<div class="list-container">
+  <h1>Courses</h1>
+    <form [formGroup]="form">
+    <div class="form-group">
+      <label >Status</label>
+      <select formControlName="status" class="form-select" aria-label="Default select example" (change)="filterByStatus()">
+        <ng-container *ngFor=" let status of statuses">
+          <option [value]="status[1]">{{status[1]}}</option>
+        </ng-container>
+      </select>
+    </div>
+    </form>
+
+  <div class="list">
+    <ng-container *ngFor="let course of coursesToView">
+      <div class="list-item">
+        <h1>{{ course.name }}</h1>
+
+        <div class="description">{{course.description}}</div>
+        <div>Category: {{course.category}}</div>
+        <div>Difficulty: {{course.difficulty}}</div>
+        <div>Created At: {{course.createdAt | date: 'yyyy-MM-dd'}}</div>
+        <div>Status: {{course.status}}</div>
+
+        <div class="buttons">
+          <button class="button" routerLink="/details/{{course.key}}">
+            Details
+          </button>
+          <button class="button" routerLink="/update/{{course.key}}">Edit</button>
+          <button class="button" (click)="deleteCourse(course.key)">Delete</button>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>

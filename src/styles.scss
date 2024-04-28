@@ -1,0 +1,44 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  &:focus {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+}
+
+body {
+  background-color: aliceblue;
+}
+
+nav {
+  display: flex;
+  height: 7vh;
+  width: 100vw;
+  align-items: center;
+  padding-left: 1em;
+
+  button {
+    font-size: 1.5em;
+    margin: 0 1em;
+    padding: 0.2em;
+
+    &:hover {
+      background-color: aliceblue;
+    }
+    &:focus{
+      background-color: darkgrey;
+    }
+  }
+}
+
+.button {
+  text-decoration: none;
+  border-radius: 0.7em;
+  color: black;
+  border: darkgrey 1px solid;
+  background-color: darkgrey;
+  cursor: pointer;
+}
+

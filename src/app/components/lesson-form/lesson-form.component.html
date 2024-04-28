@@ -1,0 +1,54 @@
+<form [formGroup]="form">
+  <div class="form-group">
+    <label for="title" >Title</label>
+    <input formControlName="title"
+           type="text" class="form-control" id="title"
+           name="title"/>
+    <div *ngIf="isTouchedAndValid('title')" class="alert alert-danger">
+      <div>Title is required.</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="order" >Order</label>
+    <input formControlName="order"
+           type="number" class="form-control" id="order"
+           name="order"/>
+    <div *ngIf="isTouchedAndValid('order')" class="alert alert-danger">
+      <div>Order is required.</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="description" >Description</label>
+    <input formControlName="description" class="form-control" id="description"
+           name="description"/>
+    <div *ngIf="isTouchedAndValid('description')" class="alert alert-danger">
+      <div>Description is required.</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="url" >Url</label>
+    <input formControlName="url" class="form-control" id="url"
+           name="url"/>
+    <div *ngIf="isTouchedAndValid('url')" class="alert alert-danger">
+      <div>Url is required.</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="estimatedDuration">Duration</label>
+    <input formControlName="estimatedDuration" class="form-control" id="estimatedDuration"
+           name="estimatedDuration"/>
+    <div *ngIf="isTouchedAndValid('estimatedDuration')" class="alert alert-danger">
+      <div>Duration is required.</div>
+    </div>
+  </div>
+
+  <button (click)="submit()" class="btn btn-success" [disabled]="!form.valid">Save</button>
+  <button class="button close" (click)="closeModalByParent()">Close</button>
+</form>
+
+
+

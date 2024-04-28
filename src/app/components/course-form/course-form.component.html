@@ -1,0 +1,69 @@
+<form [formGroup]="form">
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input formControlName="name"
+           type="text" class="form-control" id="name"
+           name="name"/>
+    <div *ngIf="isTouchedAndValid('name')" class="alert alert-danger">
+      <div>Name is required.</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="category">Category</label>
+    <input formControlName="category"
+           type="text" class="form-control" id="category"
+           name="category"/>
+    <div *ngIf="isTouchedAndValid('category')" class="alert alert-danger">
+      <div>Category is required.</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>Status</label>
+    <select formControlName="status" class="form-select" aria-label="Default select example">
+      <ng-container *ngFor=" let status of statuses">
+        <option [value]="status[1]">{{status[1]}}</option>
+      </ng-container>
+    </select>
+    <div *ngIf="isTouchedAndValid('status')" class="alert alert-danger">
+      <div>Status is required.</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>Level</label>
+    <select formControlName="difficulty" class="form-select" aria-label="Default select example">
+      <ng-container *ngFor=" let difficulty of difficulties">
+        <option [value]="difficulty[1]">{{difficulty[1]}}</option>
+      </ng-container>
+    </select>
+    <div *ngIf="isTouchedAndValid('difficulty')" class="alert alert-danger">
+      <div>Level is required.</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="createdAt">Created at</label>
+    <input formControlName="createdAt"
+           type="date" class="form-control" id="createdAt"
+           name="createdAt"/>
+    <div *ngIf="isTouchedAndValid('createdAt')" class="alert alert-danger">
+      <div>Created at is required.</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="description">Description</label>
+    <input formControlName="description" class="form-control" id="description"
+           name="description"/>
+    <div *ngIf="isTouchedAndValid('description')" class="alert alert-danger">
+      <div>Description is required.</div>
+    </div>
+  </div>
+
+  <button (click)="submit()" class="btn btn-success" [disabled]="!form.valid" routerLink="">Save</button>
+</form>
+
+
+

@@ -1,0 +1,68 @@
+.list-container {
+  display: flex;
+  flex-direction: column;
+  margin: 1em;
+
+  h1{
+    align-self: center;
+  }
+
+  .list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .list-item {
+    display: flex;
+    flex-direction: column;
+    margin: 1em;
+    height: 35vh;
+    width: 20vw;
+    border: beige 1px solid;
+    border-radius: 1em;
+    background-color: beige;
+
+    h1 {
+      align-self: center;
+      margin: 0.3em 0;
+    }
+
+    .description {
+      margin: 0 0.5em;
+      font-size: 1.2em;
+      height: 22vh;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+
+      button {
+        font-size: 1.1em;
+        height: 3vh;
+        width: 5vw;
+        margin: 0.5em 0.5em;
+        border-radius: 1em;
+        outline: none;
+        border: 1px darkgrey solid;
+        background-color: darkgrey;
+        cursor: pointer;
+
+        &:hover {
+          background-color: aliceblue;
+        }
+      }
+    }
+
+  }
+  .filter-buttons {
+    .filter {
+      margin-right: 1em;
+    }
+    button {
+      padding: 0.5em 0.5em;
+    }
+  }
+}

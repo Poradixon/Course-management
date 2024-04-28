@@ -1,0 +1,69 @@
+<div *ngIf="currentCourse" class="details-container">
+  <div class="table">
+    <section class="info">
+      <h2>{{currentCourse.name}}</h2>
+      <div>
+        <p>Category</p>
+        <p>{{currentCourse.category}}</p>
+      </div>
+      <div>
+        <p>Created at</p>
+        <p>{{currentCourse.createdAt}}</p>
+      </div>
+      <div>
+        <p>Difficulty</p>
+        <p>{{currentCourse.difficulty}}</p>
+      </div>
+      <div>
+        <p>Status</p>
+        <p>{{currentCourse.status}}</p>
+      </div>
+      <div class="detail-description">
+        <h4>Description</h4>
+        <p>{{currentCourse.description}}</p>
+      </div>
+    </section>
+    <section class="button-list">
+      <button class="button" routerLink="/update/{{currentCourse.key}}">Edit</button>
+      <button class="button" (click)="lessonId = null; openModal()">Add Lesson</button>
+      <button class="button" (click)="courseList.deleteCourse(currentCourse.key)">Delete</button>
+    </section>
+  </div>
+
+  <div class="lessons-container" *ngIf="currentCourse.lessons">
+    <div class="search-box">
+      <p>Find lesson by description</p>
+      <input #searchBar id="search-bar" (keyup)="search(searchBar.value)" placeholder="Search..."/>
+    </div>
+    <ng-container *ngFor="let lesson of lessons; let i = index">
+      <section class="lesson">
+        <h2>{{lesson.title}}</h2>
+        <h5>{{lesson.description}}</h5>
+        <div>
+          <p>Link: {{lesson.url}}</p>
+        </div>
+        <div>
+          <p>Time: {{lesson.estimatedDuration | duration}}</p>
+        </div>
+        <div>
+          <p>Order: {{lesson.order}}</p>
+        </div>
+        <div class="buttons">
+          <button class="button" (click)="child.deleteLesson(i); getCourse()">Delete</button>
+          <button class="button" (click)="lessonId = i; openModal()">Edit</button>
+        </div>
+      </section>
+    </ng-container>
+
+  </div>
+
+  <div class="modal" #modal>
+
+    <div class="modal-content">
+      <app-lesson-form [index]="lessonId" (closeModal)="closeModal()"></app-lesson-form>
+    </div>
+
+  </div>
+
+
+</div>
